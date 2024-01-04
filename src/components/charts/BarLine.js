@@ -1,7 +1,7 @@
 import React from "react"
 import Chart from "react-apexcharts";
 
-const Tmea = () => {
+const BarLine = () => {
 
   const data = [
     {
@@ -103,6 +103,7 @@ const Tmea = () => {
 
     return (
         <div className="App">
+            <p>Bar line</p>
             <div style={{width: '100%'}}>
                 <Chart
                     options={settings.options}
@@ -116,4 +117,4 @@ const Tmea = () => {
   );
 }
 
-export default Tmea
+export default BarLine

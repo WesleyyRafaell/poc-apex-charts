@@ -7,6 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.apexcharts-tooltip {
+  background: #FFF6E7;
+  color: #EDBD65;
+  border: 1px solid #EDBD65;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

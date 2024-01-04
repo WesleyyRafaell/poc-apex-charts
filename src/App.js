@@ -1,7 +1,8 @@
 import './App.css';
 
 import Chart from "react-apexcharts";
-import Tmea from './components/charts/tmea';
+import BarLine from './components/charts/BarLine';
+import Bar from './components/charts/Bar';
 
 function App() {
   const movigrama = {
@@ -34,10 +35,6 @@ function App() {
     ]
   }
 
-  
-
-
-
   return (
     <div className="App">
       <header className="App-header">
@@ -50,7 +47,10 @@ function App() {
           />
         </div>
         <div style={{width: '100%'}}>
-          <Tmea />
+          <Bar />
+        </div>
+        <div style={{width: '100%'}}>
+          <BarLine />
         </div>
 
       </header>
