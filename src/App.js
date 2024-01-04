@@ -1,33 +1,41 @@
 import './App.css';
 
 import Chart from "react-apexcharts";
+import Tmea from './components/charts/tmea';
 
 function App() {
-  const options = {
-    chart: {
-      toolbar: {
-        show: false
+  const movigrama = {
+    options: {
+      chart: {
+        toolbar: {
+          show: false
+        },
+        id: "chart"
       },
-      id: "chart"
+      stroke: {
+        curve: 'stepline',
+      },
+      dataLabels: {
+        enabled: false
+      },
+      title: {
+        text: 'Movigrama',
+        align: 'left'
+      },
+      grid: {
+        show: false,
+      },
     },
-    stroke: {
-      curve: 'stepline',
-    },
-    dataLabels: {
-      enabled: false
-    },
-    title: {
-      text: 'Movigrama',
-      align: 'left'
-    },
+    series: [
+      {
+        name: "series-1",
+        data: [30, 60, 80, 40, 70, 20, 70, 90]
+      }
+    ]
   }
 
-  const series = [
-    {
-      name: "series-1",
-      data: [30, 60, 80, 40, 70, 20, 70, 90]
-    }
-  ]
+  
+
 
 
   return (
@@ -35,11 +43,14 @@ function App() {
       <header className="App-header">
         <div>
           <Chart
-            options={options}
-            series={series}
+            options={movigrama.options}
+            series={movigrama.series}
             type="line"
             width="500"
           />
+        </div>
+        <div style={{width: '100%'}}>
+          <Tmea />
         </div>
 
       </header>
