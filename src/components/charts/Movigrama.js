@@ -1,7 +1,7 @@
 import React from "react"
 import Chart from "react-apexcharts";
 
-const Movimograma = () => {
+const Movigrama = () => {
     const data = {
         levels: [
             {
@@ -362,7 +362,7 @@ const Movimograma = () => {
       }
     return (
         <div className="App">
-            <p>Movimograma</p>
+            <p>Movigrama</p>
             <div style={{width: '100%'}}>
                 <Chart
                     options={settings.options}
@@ -375,4 +375,4 @@ const Movimograma = () => {
   );
 }
 
-export default Movimograma
+export default Movigrama

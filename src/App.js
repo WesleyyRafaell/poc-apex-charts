@@ -2,14 +2,14 @@ import './App.css';
 
 import BarLine from './components/charts/BarLine';
 import Bar from './components/charts/Bar';
-import Movimograma from './components/charts/Movimograma';
+import Movigrama from './components/charts/Movigrama';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <div>
-          <Movimograma />
+          <Movigrama />
         </div>
         <div style={{width: '100%'}}>
           <Bar />
