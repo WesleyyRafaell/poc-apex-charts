@@ -6,41 +6,51 @@ const BarLine = () => {
   const data = [
     {
       color: "#D9D9D9",
-      data: [3]
+      name: 'item 1',
+      values: [3]
     },
     {
       color: "#F6C8E4",
-      data: [7]
+      name: 'item 2',
+      values: [7]
     },
     {
       color: "#EBBED7",
-      data: [10]
+      name: 'item 3',
+      values: [10]
     },
     {
       color: "#D3AAC1",
-      data: [5]
+      name: 'item 4',
+      values: [5]
     },
     {
       color: "#CBA4BA",
-      data: [20]
+      name: 'item 5',
+      values: [20]
     },
     {
       color: "#EC92C5",
-      data: [10]
+      name: 'item 6',
+      values: [10]
     },
     {
       color: "#EB82C1",
-      data: [5]
+      name: 'item 7',
+      values: [5]
     },
     {
       color: "#EC5EBA",
-      data: [20]
+      name: 'item 8',
+      values: [20]
     },
     {
       color: "#CF2B95",
-      data: [10]
+      name: 'item 9',
+      values: [10]
     },
   ]
+
 
     const settings = {
         options: {
@@ -91,14 +101,17 @@ const BarLine = () => {
             show: false,
           },
           tooltip: {
-            enabled: false
+            enabled: true,
+            x: {
+              show: false,
+          }
           },
           dataLabels: {
             enabled: false
           },
           colors: data.map(item => item.color),
         }, 
-        series: data.map(item => ({ data: item.data }))
+        series: data.map(item => ({ name: item.name, data: item.values}))
       }
 
     return (
