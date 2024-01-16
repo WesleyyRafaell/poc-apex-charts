@@ -21,50 +21,39 @@ console.log('sas', generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime
   max: 60
 }))
 
-const Movigrama = () => {
-    const data = {
-        levels: [
-            {
-                y: 80,
-                y2: 100,
-                color: '#E3052E',
-            },
-            {
-                y: 20,
-                y2: 50,
-                color: '#EFE706',
-            },
-            {
-                y: 50,
-                y2: 60,
-                color: '#01F707',
-            },
-        ]
-    }
-    
+const Movigrama2 = () => {    
     const settings = {
         series: [
           {
-            name: "Saldo",
-            type: "line", 
-            // data: [[1, 10], [2, 25], [3, 45], [4, 56], [5, 13], [6, 72], [7, 38], [8, 25], [9, 10], [10, 22]]
-            // data: [20, 50, 80, 90, 45, 72, 29, 25, 45, 22]
-            data: SeriesMovigrama.balance.map(item => item)
-          }, 
+          name: 'Entradas',
+          type: 'column',
+          data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+        }, 
           {
-            name: 'Entradas',
-            type: 'column',
-            // data: [[1, 10], [2, 25], [3, 45], [4, 56], [5, 13], [6, 72], [7, 38], [8, 25], [9, 10], [10, 22],]
-            // data: [70, 85, 80, 90, 45, 72, 29, 25, 45, 22]
-            data: SeriesMovigrama.input.map(item => item)
-          },
-          {
-            name: 'Saidas',
-            type: 'column',
-            // data: [15, 12, 25, 82, 45, 72, 29, 25, 45, 22]
-            data: SeriesMovigrama.output.map(item => item)
-          }
-        ],
+          name: 'Saidas',
+          type: 'column',
+          data: [-20, -15, -60, -37, -13, -22, -37, -21, -44, -22, -30]
+        }, 
+        {
+          name: 'tunel 3',
+          type: 'area',
+          data: [95, 85, 85, 85, 85, 90, 90, 90, 70, 70, 70]
+        }, 
+        {
+          name: 'tunel 2',
+          type: 'area',
+          data: [85, 75, 75, 75, 75, 80, 80, 80, 60, 60, 60]
+        }, 
+        {
+          name: 'tunel 1',
+          type: 'area',
+          data: [75, 65, 65, 65, 65, 70, 70, 70, 50, 50, 50]
+        }, 
+        {
+          name: 'TEAM C',
+          type: 'line',
+          data: [30, 25, 36, 30, 22, 35, 64, 85, 59, 27, 39]
+        }],
           options: {
             chart: {
                 toolbar: {
@@ -85,9 +74,9 @@ const Movigrama = () => {
             dataLabels: {
               enabled: false
             },
-            colors: ['#27568E', '#14651C', '#A50D0D'],
+            colors: ['#14651C', '#A50D0D', '#05DA73', '#F0E806', '#E3052E', '#27568E'],
             stroke: {
-              width: [1],
+              width: [0, 2, 1],
               curve: 'stepline'
             },
             grid: {
@@ -96,22 +85,27 @@ const Movigrama = () => {
                 left: 20
               }
             },
-            // xaxis: {
-            //   type: 'datetime'
+            // plotOptions: {
+            //   bar: {
+            //     columnWidth: '50%'
+            //   }
             // },
-            xaxis: {
-              type: 'categories',
-              categories: SeriesMovigrama.day.map(item => item),
-              // categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-              tickAmount: 25,
-              labels: {
-                show: true,
-                rotate: -90,
-                rotateAlways: true,
-              },
-              tooltip: {
-                enabled: false,
+            fill: {
+              opacity: [0.85, 0.85, 0.35, 0.35, 0.35, 1],
+              gradient: {
+                inverseColors: false,
+                shade: 'light',
+                type: "diagonal1",
+                opacityFrom: 0.85,
+                opacityTo: 0.55,
+                stops: [0, 100, 100, 100]
               }
+            },
+            labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+              '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+            ],
+            xaxis: {
+              type: 'datetime'
             },
             tooltip: {
                 x: {
@@ -137,4 +131,4 @@ const Movigrama = () => {
   );
 }
 
-export default Movigrama
+export default Movigrama2
