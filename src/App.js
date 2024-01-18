@@ -12,15 +12,15 @@ function App() {
         <div>
           <Movigrama2 />
         </div>
-        <div>
+        {/* <div>
           <Movigrama />
-        </div>
-        <div style={{width: '100%'}}>
+        </div> */}
+        {/* <div style={{width: '100%'}}>
           <Bar />
         </div>
         <div style={{width: '100%'}}>
           <BarLine />
-        </div>
+        </div> */}
       </header>
     </div>
   );

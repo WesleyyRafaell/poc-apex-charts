@@ -27,46 +27,52 @@ const Movigrama2 = () => {
           {
           name: 'Entradas',
           type: 'column',
-          data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+          // data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+          data: SeriesMovigrama.input.map(item => item)
         }, 
           {
           name: 'Saidas',
           type: 'column',
-          data: [-20, -15, -60, -37, -13, -22, -37, -21, -44, -22, -30]
+          // data: [-20, -15, -60, -37, -13, -22, -37, -21, -44, -22, -30]
+          data: SeriesMovigrama.output.map(item => item)
         }, 
         {
           name: 'tunel 3',
           type: 'area',
-          data: [95, 85, 85, 85, 85, 90, 90, 90, 70, 70, 70]
+          // data: [95, 85, 85, 85, 85, 90, 90, 90, 70, 70, 70]
+          data: SeriesMovigrama.tunel3.map(item => item.value)
         }, 
         {
           name: 'tunel 2',
           type: 'area',
-          data: [85, 75, 75, 75, 75, 80, 80, 80, 60, 60, 60]
+          // data: [85, 75, 75, 75, 75, 80, 80, 80, 60, 60, 60]
+          data: SeriesMovigrama.tunel2.map(item => item.value)
         }, 
         {
           name: 'tunel 1',
           type: 'area',
-          data: [75, 65, 65, 65, 65, 70, 70, 70, 50, 50, 50]
+          // data: [75, 65, 65, 65, 65, 70, 70, 70, 50, 50, 50]
+          data: SeriesMovigrama.tunel1.map(item => item.value)
         }, 
         {
-          name: 'TEAM C',
+          name: 'Saldo',
           type: 'line',
-          data: [30, 25, 36, 30, 22, 35, 64, 85, 59, 27, 39]
+          // data: [30, 25, 36, 30, 22, 35, 64, 85, 59, 27, 39]
+          data: SeriesMovigrama.balance.map(item => item)
         }],
           options: {
             chart: {
                 toolbar: {
-                    show: true,
-                    tools: {
-                        download: false,
-                        selection: false,
-                        pan: false,
-                        zoom: true,
-                        zoomin: true,
-                        zoomout: true,
-                    }
-                },
+                  show: true,
+                  tools: {
+                      download: false,
+                      selection: false,
+                      pan: false,
+                      zoom: true,
+                      zoomin: true,
+                      zoomout: true,
+                  }
+              },
               height: 350,
               type: 'line',
               id: 'areachart-2',
@@ -74,9 +80,9 @@ const Movigrama2 = () => {
             dataLabels: {
               enabled: false
             },
-            colors: ['#14651C', '#A50D0D', '#05DA73', '#F0E806', '#E3052E', '#27568E'],
+            colors: ['#14651C', '#A50D0D', '#C9EAC9', '#EEF0CA', '#F2CFCF', '#27568E'],
             stroke: {
-              width: [0, 2, 1],
+              width: [1],
               curve: 'stepline'
             },
             grid: {
@@ -85,13 +91,8 @@ const Movigrama2 = () => {
                 left: 20
               }
             },
-            // plotOptions: {
-            //   bar: {
-            //     columnWidth: '50%'
-            //   }
-            // },
             fill: {
-              opacity: [0.85, 0.85, 0.35, 0.35, 0.35, 1],
+              opacity: [0.85, 0.85, 1, 1, 1, 1],
               gradient: {
                 inverseColors: false,
                 shade: 'light',
@@ -101,11 +102,18 @@ const Movigrama2 = () => {
                 stops: [0, 100, 100, 100]
               }
             },
-            labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
-              '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
-            ],
+            annotations: {
+              xaxis: [{
+                x: 239,
+                x2: 253,
+                fillColor: '#BDBDBD',
+                opacity: 0.75,
+              }]
+            },
+            labels: SeriesMovigrama.day.map(item => item),
             xaxis: {
-              type: 'datetime'
+              type: 'category',
+              tickAmount: 25,
             },
             tooltip: {
                 x: {
