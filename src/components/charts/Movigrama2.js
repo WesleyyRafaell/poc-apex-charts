@@ -103,12 +103,20 @@ const Movigrama2 = () => {
               }
             },
             annotations: {
-              xaxis: [{
-                x: 239,
-                x2: 253,
-                fillColor: '#BDBDBD',
-                opacity: 0.75,
-              }]
+              xaxis: [
+                {
+                  x: 0,
+                  x2: 101,
+                  fillColor: '#BDBDBD',
+                  opacity: 0.35,
+                },
+                {
+                  x: 239,
+                  x2: 253,
+                  fillColor: '#BDBDBD',
+                  opacity: 0.35,
+                },
+            ]
             },
             labels: SeriesMovigrama.day.map(item => item),
             xaxis: {
