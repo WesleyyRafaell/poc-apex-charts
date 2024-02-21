@@ -1,64 +1,66 @@
 import React from "react"
 import Chart from "react-apexcharts";
-import { SeriesMovigrama } from "./movigramaSeries";
+import { SeriesMovigrama3 } from "./movigramaSeries";
+import { seriesMovigramaNew } from "./newMovigramaSeries";
 
-var generateDayWiseTimeSeries = function (baseval, count, yrange) {
-  var i = 0;
-  var series = [];
-  while (i < count) {
-    var x = baseval;
-    var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+const Movigrama2 = () => {  
+    const date = seriesMovigramaNew.Movigram.map(item => item[0])
 
-    series.push([x, y]);
-    baseval += 86400000;
-    i++;
-  }
-  return series;
-}
-
-console.log('sas', generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 10, {
-  min: 10,
-  max: 60
-}))
-
-const Movigrama2 = () => {    
     const settings = {
         series: [
           {
           name: 'Entradas',
           type: 'column',
-          // data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
-          data: SeriesMovigrama.input.map(item => item)
+          // data: SeriesMovigrama3.supply.map(item => item)
+          data: [0,0,0,0,0,0,0,0,0,0,]
         }, 
           {
           name: 'Saidas',
           type: 'column',
-          // data: [-20, -15, -60, -37, -13, -22, -37, -21, -44, -22, -30]
-          data: SeriesMovigrama.output.map(item => item)
+          // data: SeriesMovigrama3.consumption.map(item => item)
+          data: [0,0,0,0,0,0,0,0,0,0,]
+        }, 
+        {
+          name: 'tunel 6',
+          type: 'area',
+          // data: SeriesMovigrama3.zonegray.map(item => item)
+          data: [0,0,0,0,0,0,0,0,0,0,]
+        }, 
+        {
+          name: 'tunel 5',
+          type: 'area',
+          // data: SeriesMovigrama3.zonered2.map(item => item)
+          data: [0,0,0,0,0,0,0,0,0,0,]
+        }, 
+        {
+          name: 'tunel 4',
+          type: 'area',
+          // data: SeriesMovigrama3.zoneyellow2.map(item => item)
+          data: [0,0,0,0,0,0,0,0,0,0,]
         }, 
         {
           name: 'tunel 3',
           type: 'area',
-          // data: [95, 85, 85, 85, 85, 90, 90, 90, 70, 70, 70]
-          data: SeriesMovigrama.tunel3.map(item => item.value)
+          // data: SeriesMovigrama3.zonegreen.map(item => item)
+          data: [0,0,0,0,0,0,0,0,0,0,]
         }, 
         {
           name: 'tunel 2',
           type: 'area',
-          // data: [85, 75, 75, 75, 75, 80, 80, 80, 60, 60, 60]
-          data: SeriesMovigrama.tunel2.map(item => item.value)
+          // data: SeriesMovigrama3.zoneyellow.map(item => item)
+          data: [0,0,0,0,0,0,0,0,0,0,]
         }, 
         {
           name: 'tunel 1',
           type: 'area',
-          // data: [75, 65, 65, 65, 65, 70, 70, 70, 50, 50, 50]
-          data: SeriesMovigrama.tunel1.map(item => item.value)
+          // data: SeriesMovigrama3.zonered1.map(item => item)
+          data: [0,0,0,0,1700,0,0,0,0,0,]
         }, 
         {
           name: 'Saldo',
           type: 'line',
-          // data: [30, 25, 36, 30, 22, 35, 64, 85, 59, 27, 39]
-          data: SeriesMovigrama.balance.map(item => item)
+          // data: SeriesMovigrama3.balance.map(item => item)
+          data: [0,0,0,0,1200,0,0,0,0,0,]
         }],
           options: {
             chart: {
@@ -80,7 +82,7 @@ const Movigrama2 = () => {
             dataLabels: {
               enabled: false
             },
-            colors: ['#14651C', '#A50D0D', '#C9EAC9', '#EEF0CA', '#F2CFCF', '#27568E'],
+            colors: ['#14651C', '#A50D0D', '#BDBDBD', '#F2CFCF', '#EEF0CA', '#C9EAC9', '#EEF0CA', '#F2CFCF', '#27568E'],
             stroke: {
               width: [1],
               curve: 'stepline'
@@ -92,7 +94,7 @@ const Movigrama2 = () => {
               }
             },
             fill: {
-              opacity: [0.85, 0.85, 1, 1, 1, 1],
+              opacity: [0.85, 0.85, 1, 1, 1, 1, 1, 1, 1],
               gradient: {
                 inverseColors: false,
                 shade: 'light',
@@ -102,25 +104,9 @@ const Movigrama2 = () => {
                 stops: [0, 100, 100, 100]
               }
             },
-            annotations: {
-              xaxis: [
-                {
-                  x: 0,
-                  x2: 101,
-                  fillColor: '#BDBDBD',
-                  opacity: 0.35,
-                },
-                {
-                  x: 239,
-                  x2: 253,
-                  fillColor: '#BDBDBD',
-                  opacity: 0.35,
-                },
-            ]
-            },
-            labels: SeriesMovigrama.day.map(item => item),
+            labels: date,
             xaxis: {
-              type: 'category',
+              type: 'date',
               tickAmount: 25,
             },
             tooltip: {
@@ -140,7 +126,7 @@ const Movigrama2 = () => {
                     options={settings.options}
                     series={settings.series}
                     type="line"
-                    width="800"
+                    width="700"
                 />
             </div>
         </div>

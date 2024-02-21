@@ -16,10 +16,10 @@ var generateDayWiseTimeSeries = function (baseval, count, yrange) {
   return series;
 }
 
-console.log('sas', generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 10, {
-  min: 10,
-  max: 60
-}))
+// console.log('sas', generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 10, {
+//   min: 10,
+//   max: 60
+// }))
 
 const Movigrama = () => {
     const data = {

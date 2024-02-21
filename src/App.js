@@ -4,13 +4,16 @@ import BarLine from './components/charts/BarLine';
 import Bar from './components/charts/Bar';
 import Movigrama from './components/charts/Movigrama';
 import Movigrama2 from './components/charts/Movigrama2';
+import Waterfall from './components/charts/Waterfall';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <div>
-          <Movigrama2 />
+          {/* <Movigrama2 /> */}
+         
+          <Waterfall />
         </div>
         {/* <div>
           <Movigrama />
