@@ -5,6 +5,7 @@ import Bar from './components/charts/Bar';
 import Movigrama from './components/charts/Movigrama';
 import Movigrama2 from './components/charts/Movigrama2';
 import Waterfall from './components/charts/Waterfall';
+import WaterfallAnyChart from './components/charts/WaterfallAnyChart';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <div>
           {/* <Movigrama2 /> */}
          
-          <Waterfall />
+          {/* <Waterfall /> */}
+          <WaterfallAnyChart />
         </div>
         {/* <div>
           <Movigrama />
