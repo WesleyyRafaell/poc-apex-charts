@@ -12,10 +12,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          {/* <Movigrama2 /> */}
+          <Movigrama2 />
          
           {/* <Waterfall /> */}
-          <WaterfallAnyChart />
+          {/* <WaterfallAnyChart /> */}
         </div>
         {/* <div>
           <Movigrama />
