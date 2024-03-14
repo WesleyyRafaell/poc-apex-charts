@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React from "react"
 import Chart from "react-apexcharts";
 import { movigramSummaryDoc } from "./movigramaSeriesSprint4";
@@ -6,13 +7,10 @@ const Movigrama2 = () => {
   const generateArrayFromResume = (arrayToGenerate, type) => {
     const arrayUnformatted = arrayToGenerate.map((item, index) => {
       if(!arrayToGenerate[index + 1]) return item
-      let startDate = new Date(arrayToGenerate[index][0]);
-      let endDate = new Date(arrayToGenerate[index + 1][0]);
+      let startDate = new Date(`${arrayToGenerate[index][0]}T00:00:00`.replace(/-/g, '\/').replace(/T.+/, ''));
+      let endDate = new Date(`${arrayToGenerate[index + 1][0]}T00:00:00`.replace(/-/g, '\/').replace(/T.+/, ''));
 
       const range = generateDateRange(startDate, endDate)
-      // if(type === 'tunnel'){
-      //   console.log(`range`, range)
-      // }
 
       if(range.length > 1){
         return range.map(itensRange => {
@@ -69,10 +67,11 @@ const Movigrama2 = () => {
 
   const transactions = generateArrayFromResume(movigramSummaryDoc.transactions, 'transaction')  
   const tunnels = generateArrayFromResume(movigramSummaryDoc.tunnel, 'tunnel')  
+  console.log(`transactions`, transactions.length)
+  console.log(`tunnels`, tunnels.length)
 
 
   const dates = transactions.map((item) => item[0]).flatMap(array => array)
-
   const balance = transactions.map((item) => item[1]).flatMap(array => array)
   const supply = transactions.map((item) => item[2]).flatMap(array => array)
   const consumption = transactions.map((item) => item[3]).flatMap(array => array)
